@@ -1,6 +1,6 @@
 class Trie:
     def __init__(self):
-        # Initializes trie data srtucture - uses a hashtable internally
+        # Initializes trie data srtucture - uses a hashtable internally.
         self.trie = {}
         
     def addWord(self, word : str) -> None:
@@ -23,7 +23,7 @@ class Trie:
 
     def _by_value(self, item):
         """
-        Private method for sorting the trie by the value of the words,
+        Private method for sorting the trie by the value of the words.
         """
         return item[1]
 
@@ -37,6 +37,12 @@ class Trie:
             suggestions.append(key)
 
         return suggestions
+
+    def display(self) -> list:
+        """
+        Displays the words in the trie in decreasing order.
+        """
+        return self.trie.keys()
 
     def delete(self, word : str) -> None:
         """

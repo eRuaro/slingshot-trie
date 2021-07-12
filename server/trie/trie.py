@@ -8,8 +8,10 @@ class Trie:
         Adds a word to the trie.
         """
         if word not in self.trie.keys():
+            # Sets the initial value to 1 as this is the first occurence of the word.
             self.trie[word] = 1
         else:
+            # Increases the occurence of the word in the trie by 1. 
             self.trie[word] += 1
 
     def search(self, word : str) -> bool:
@@ -23,7 +25,7 @@ class Trie:
 
     def _by_value(self, item):
         """
-        Private method for sorting the trie by the value of the words.
+        Private method for sorting the trie by the occurence of the words.
         """
         return item[1]
 
@@ -33,6 +35,7 @@ class Trie:
         """
         suggestions = []
         
+        # sorts the keys in the trie decreasing occurence of the words.
         for key in sorted(self.trie.items(), key=self._by_value, reverse=True):
             suggestions.append(key)
 

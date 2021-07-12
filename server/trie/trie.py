@@ -38,9 +38,9 @@ class Trie:
 
         return suggestions
 
-    def display(self) -> list:
+    def getAllWords(self) -> list:
         """
-        Displays the words in the trie in decreasing order.
+        Returns a list of all the words in the trie, sorted in decreasing order.
         """
         return self.trie.keys()
 

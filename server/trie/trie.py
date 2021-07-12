@@ -23,7 +23,7 @@ class Trie:
         else:
             return True
 
-    def _by_value(self, item):
+    def _by_occurence(self, item):
         """
         Private method for sorting the trie by the occurence of the words.
         """
@@ -36,7 +36,7 @@ class Trie:
         suggestions = []
         
         # sorts the keys in the trie decreasing occurence of the words.
-        for key in sorted(self.trie.items(), key=self._by_value, reverse=True):
+        for key in sorted(self.trie.items(), key=self._by_occurence, reverse=True):
             suggestions.append(key)
 
         return suggestions

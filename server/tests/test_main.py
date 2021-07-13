@@ -45,3 +45,20 @@ def test_delete_method_deleting_word_not_in_trie():
     response = client.delete("/delete-word/sling")
     assert response.status_code == 200
     assert response.json() == {"status": "sling does not exist in Trie"}
+
+def test_get_method_searching_word_in_trie():
+    """
+    Tests searching a word in the trie
+    """
+    client.post("/add-word/hello")
+    response = client.get("/search/hello")
+    assert response.status_code == 200
+    assert response.json() == {"status": "hello found in Trie!"}
+def test_get_method_searching_word_not_in_trie():
+    """
+    Tests searching a word not in the trie
+    """
+    response = client.get("/search/slingshot")       
+    assert response.status_code == 200       
+    #slingshot was deleted in an earlier test so it should not be in the trie anymore
+    assert response.json() == {"status": "slingshot not found in Trie!"}

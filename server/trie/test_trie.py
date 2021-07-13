@@ -32,7 +32,12 @@ def test_search_word_in_trie():
     test_trie.add_word("slingshot")
     assert test_trie.search("slingshot") == True
 
-def test_deleting_word_not_in_trie():
+def test_deleting_word_in_trie():
     """
-    
-    """
+    Tests deleting a word not in the trie with the delete method       
+    """       
+    test_trie = trie.Trie()       
+    test_trie.add_word("hello")
+    test_trie.delete("hello")
+    assert test_trie.search("hello") == False
+

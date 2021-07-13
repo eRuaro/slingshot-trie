@@ -34,7 +34,7 @@ def delete_word(word : str):
     typer.echo(response.json()["status"])
 
 @app.command()
-def suggestions(prefix : str, suggestion_nums = 5):
+def suggestions(prefix : str = typer.Argument(...), suggestion_nums : int = typer.Argument(5)):
     """
     Returns a list of suggestions for a given prefix in the Trie API. Defaults to giving the top 5    
     """       
@@ -43,7 +43,24 @@ def suggestions(prefix : str, suggestion_nums = 5):
     for i in range(len(response.json())):
         typer.echo(response.json()[i])
         
-    
+@app.command()
+def display(display_nums : int = typer.Argument(5), display_all : bool = typer.Argument(False)):
+    """
+    Displays the words in the Trie API server. Defaults to displaying the top 5 words.
+    """
+    response_url = url + "/display-trie"            
+    response = requests.get(response_url)   
+    typer.echo(response.json())
+    if display_all:
+        for i in range(len(response.json())):        
+            typer.echo(response.json()[i])
+    else:
+        if display_nums > len(response.json()):
+            for i in range(len(response.json())):
+                typer.echo(response.json()[i])
+        else:
+            for i in range(display_nums):
+                typer.echo(response.json()[i])
 
 if __name__ == "__main__":
     app()

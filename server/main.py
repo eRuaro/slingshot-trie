@@ -11,7 +11,7 @@ async def read_root():
 
 @app.post("/add-word/{word}")
 async def add_word(word: str):
-    trie.addWord(word)                   
+    trie.add_word(word)                   
     return {"status": word +  " added to Trie"}
 
 @app.delete("/delete-word/{word}")
@@ -38,5 +38,5 @@ async def search_word(word : str):
 #display-trie?words_nums=5
 @app.get("/display-trie")
 async def display(words_nums : Optional[int] = 5):
-    words = trie.getAllWords()
+    words = trie.get_all_words()
     return words[:words_nums]

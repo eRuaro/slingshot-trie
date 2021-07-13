@@ -3,7 +3,7 @@ class Trie:
         # Initializes trie data srtucture - uses a hashtable internally.
         self.trie = {}
         
-    def addWord(self, word : str) -> None:
+    def add_word(self, word : str) -> None:
         """
         Adds a word to the trie.
         """
@@ -41,7 +41,7 @@ class Trie:
 
         return suggestions
 
-    def getAllWords(self) -> list:
+    def get_all_words(self) -> list:
         """
         Returns a list of all the words in the trie, sorted in decreasing order.
         """

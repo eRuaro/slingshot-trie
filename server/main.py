@@ -10,12 +10,13 @@ trie = trie.Trie()
 async def read_root():
     return {"Hello!": "This is a Trie API!"}
 
-@app.post("/addWord/{word}")
+@app.post("/add-word/{word}")
 async def add_word(word: str):
     trie.addWord(word)                   
-    return {"status": "ok"}
+    return {"status": word +  " added to Trie"}
 
+#prefix/?suggestions_nums=5
 @app.get("/suggestions/{prefix}")
-async def get_suggestions(prefix : str, suggestion_nums=5):
+async def get_suggestions(prefix : str, suggestion_nums : Optional[int] = 5):
     suggestions = trie.suggest(prefix)
-    return {"suggestions": suggestions[:suggestion_nums]}
+    return suggestions[:suggestion_nums]

@@ -45,7 +45,7 @@ class Trie:
         """
         Returns a list of all the words in the trie, sorted in decreasing order.
         """
-        return self.trie.keys()
+        return list(self.trie.keys())
 
     def delete(self, word : str) -> None:
         """

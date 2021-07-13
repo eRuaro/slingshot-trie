@@ -5,7 +5,6 @@ import trie.trie as trie
 app = FastAPI()
 trie = trie.Trie()
 
-
 @app.get("/")
 async def read_root():
     return {"Hello!": "This is a Trie API!"}
@@ -35,3 +34,9 @@ async def search_word(word : str):
         return {"status": word + " found in Trie!"}
     else:
         return {"status": word + " not found in Trie!"}
+
+#display-trie?words_nums=5
+@app.get("/display-trie")
+async def display(words_nums : Optional[int] = 5):
+    words = trie.getAllWords()
+    return words[:words_nums]

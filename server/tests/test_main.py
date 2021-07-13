@@ -89,3 +89,11 @@ def test_get_method_suggestion_modified():
     assert response.status_code == 200
     assert response.json() == ["slinggirl", "slingshot is cool","sli"]
 
+def test_get_display():
+    """
+    Tests getting all the words
+    """
+    response = client.get("/display-trie")
+    correct_all_words = ["real madrid", "slinggirl", "slingshot is cool", "hello", "real bacon", "fake bacon","sli", "slingboy", "slingshot"]
+    assert response.status_code == 200
+    assert response.json() == correct_all_words

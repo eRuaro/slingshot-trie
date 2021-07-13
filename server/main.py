@@ -37,6 +37,6 @@ async def search_word(word : str):
 
 #display-trie?words_nums=5
 @app.get("/display-trie")
-async def display(words_nums : Optional[int] = 5):
+async def display():
     words = trie.get_all_words()
-    return words[:words_nums]
+    return words

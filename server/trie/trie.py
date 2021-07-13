@@ -37,7 +37,8 @@ class Trie:
         
         # sorts the keys in the trie decreasing occurence of the words.
         for key in sorted(self.trie.items(), key=self._by_occurence, reverse=True):
-            suggestions.append(key)
+            if key[0].startswith(prefix):
+                suggestions.append(key[0])
 
         return suggestions
 
@@ -52,3 +53,12 @@ class Trie:
         Deletes a word from the trie
         """
         self.trie.pop(word, None)
+
+test_trie = Trie()
+test_trie.add_word("sling")
+test_trie.add_word("slingshot")
+test_trie.add_word("shot")
+test_trie.add_word("slingboy")
+test_trie.add_word("slingshot")
+suggest = test_trie.suggest("sling")
+print(suggest)

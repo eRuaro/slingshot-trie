@@ -41,3 +41,16 @@ def test_deleting_word_in_trie():
     test_trie.delete("hello")
     assert test_trie.search("hello") == False
 
+def test_suggest():
+    """
+    Tests autocomplete feature of Trie
+    """
+    test_trie = trie.Trie()
+    test_trie.add_word("sling")
+    test_trie.add_word("slingshot")
+    test_trie.add_word("shot")
+    test_trie.add_word("slingboy")
+    test_trie.add_word("slingshot")
+    correct_suggestions = ["slingshot", "sling", "slingboy"]
+    suggest_suggestions = test_trie.suggest("sling")
+    assert suggest_suggestions == correct_suggestions

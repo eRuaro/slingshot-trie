@@ -15,8 +15,23 @@ async def add_word(word: str):
     trie.addWord(word)                   
     return {"status": word +  " added to Trie"}
 
+@app.delete("/delete-word/{word}")
+async def delete_word(word: str):
+    if trie.search(word):
+        trie.delete(word)
+        return {"status": word + " deleted from Trie"}
+    else:
+        return {"status": word + " does not exist in Trie"}
+
 #prefix/?suggestions_nums=5
 @app.get("/suggestions/{prefix}")
 async def get_suggestions(prefix : str, suggestion_nums : Optional[int] = 5):
     suggestions = trie.suggest(prefix)
     return suggestions[:suggestion_nums]
+
+@app.get("/search/{word}")
+async def search_word(word : str):
+    if trie.search(word):                   
+        return {"status": word + " found in Trie!"}
+    else:
+        return {"status": word + " not found in Trie!"}

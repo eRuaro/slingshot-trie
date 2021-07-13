@@ -36,6 +36,7 @@ class Trie:
         suggestions = []
         
         # sorts the keys in the trie decreasing occurence of the words.
+        # the logic here is that the more times a word/s occurs in the real-world, the more likely it is to be suggested.
         for key in sorted(self.trie.items(), key=self._by_occurence, reverse=True):
             if key[0].startswith(prefix):
                 suggestions.append(key[0])
@@ -46,7 +47,10 @@ class Trie:
         """
         Returns a list of all the words in the trie, sorted in decreasing order.
         """
-        return list(self.trie.keys())
+        all_words = []
+        for key in sorted(self.trie.items(), key=self._by_occurence, reverse=True):
+            all_words.append(key[0])
+        return all_words 
 
     def delete(self, word : str) -> None:
         """
@@ -54,11 +58,3 @@ class Trie:
         """
         self.trie.pop(word, None)
 
-test_trie = Trie()
-test_trie.add_word("sling")
-test_trie.add_word("slingshot")
-test_trie.add_word("shot")
-test_trie.add_word("slingboy")
-test_trie.add_word("slingshot")
-suggest = test_trie.suggest("sling")
-print(suggest)

@@ -54,3 +54,21 @@ def test_suggest():
     correct_suggestions = ["slingshot", "sling", "slingboy"]
     suggest_suggestions = test_trie.suggest("sling")
     assert suggest_suggestions == correct_suggestions
+
+def test_get_all_words():
+    """
+    Tests getting all the words in the trie
+    """
+    test_trie = trie.Trie()
+    test_trie.add_word("hello")
+    test_trie.add_word("slingshot")
+    test_trie.add_word("shot")
+    test_trie.add_word("slingboy")
+    test_trie.add_word("slingshot")
+    test_trie.add_word("slingshot")
+    test_trie.add_word("hello")
+    test_trie.add_word("slingshot")
+    test_trie.add_word("shot")
+    correct_all_words = ["slingshot", "hello", "shot", "slingboy"]
+    all_words_from_get_all_words = test_trie.get_all_words()
+    assert correct_all_words == all_words_from_get_all_words

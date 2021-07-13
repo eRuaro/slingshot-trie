@@ -9,6 +9,10 @@ def add_word(word : str) -> None:
     """
     Adds word to the trie API
     """
+    response_url = url + "/add-word/" + word
+    response = requests.post(response_url)
+    # typer.echo(response.status_code)
+    # typer.echo(response.json()["status"])
     
 
 @app.command()

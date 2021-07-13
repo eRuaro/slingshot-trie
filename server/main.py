@@ -8,7 +8,7 @@ trie = trie.Trie()
 
 @app.get("/")
 async def read_root():
-    return {"Hello": "World"}
+    return {"Hello!": "This is a Trie API!"}
 
 @app.put("/addWord/{word}")
 async def add_word(word: str):

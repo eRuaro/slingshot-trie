@@ -48,6 +48,7 @@ class Trie:
         Returns a list of all the words in the trie, sorted in decreasing order.
         """
         all_words = []
+        
         for key in sorted(self.trie.items(), key=self._by_occurence, reverse=True):
             all_words.append(key[0])
         return all_words 

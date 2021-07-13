@@ -1,5 +1,5 @@
 import pytest
-import trie.trie as trie
+from ..trie import trie as trie
 
 def test_add_word():
     """

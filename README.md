@@ -55,14 +55,14 @@ The `server` directory contains the underlying code of the Trie data structure, 
    `python main.py suggestions your_prefix --n your_n`
 #### 5. Displaying words in the trie
    `python main.py display`
-      - This will display the top 5 words in the Trie
+    - This will display the top 5 words in the Trie
    
-   displaying *n* words in the trie:
+   Displaying *n* words in the trie:
 
    `python main.py display --n your_n`
    
-   displaying all words in the trie:
-   
+   Displaying all words in the trie:
+
    `python main.py display --all`
 ## Running tests
 1. Navigate to either the `test` directory or the `server/tests` directory and run the command `pytest` to run the test cases.

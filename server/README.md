@@ -15,6 +15,7 @@ There are a total of 5 endpoints namely:
    - `curl -X DELETE https://w0j5na.deta.dev/delete-word/{word}`
 3. `/suggestions/{prefix}`
    - `curl https://w0j5na.deta.dev/suggestions/{prefix}`
+   - `curl https://w0j5na.deta.dev/suggestions/{prefix}/?suggestion_nums={your_n}`
 4. `/search/{word}`
    - `curl https://w0j5na.deta.dev/search/{word}`
 5. `/display-trie`

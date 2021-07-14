@@ -44,7 +44,7 @@ def suggestions(prefix : str = typer.Argument(...), n : int = typer.Option(5, he
         typer.echo(response.json()[i])
         
 @app.command()
-def display(n : int = typer.Option(5, help="Default the top n words in the trie"), all : bool = typer.Option(False, help="Displays all the words in the trie")):
+def display(n : int = typer.Option(5, help="Displays the top n words in the trie"), all : bool = typer.Option(False, help="Displays all the words in the trie")):
     """
     Displays the words in the Trie API server. Defaults to displaying the top 5 words.
     """

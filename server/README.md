@@ -1,2 +1,0 @@
-The `server` directory is where you'll find the server-side code. This includes the code for the FastAPI located in main.py.
-The `trie` directory contains the class that represents the `trie` data structure.

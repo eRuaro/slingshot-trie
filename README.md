@@ -1,5 +1,5 @@
 # Trie Data Structure
-This is my submission for the slingshot take home assessment, create a Trie data structure.
+This is my submission for the slingshot take home assessment, create a Trie data structure. The CLI-application was created using [Typer](https://typer.tiangolo.com/).
 
 ## Installation
 1. Clone the repo:

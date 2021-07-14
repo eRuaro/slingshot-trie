@@ -23,5 +23,34 @@ This is my submission for the slingshot take home assessment, create a Trie data
 |
 └───main.py
 ```
-## Usage
-1. Running `--help`
+
+The `main.py` file contains the cli-application itself while the `test/test_main.py` contains the test suite for the cli-application.
+
+The `server` directory contains the underlying code of the Trie data structure, and the API I created out of it. `server/main.py` contains the API code, while `server/trie/trie.py` contains the Trie data structure. `server/tests` directory contains the test suites of the API and the Trie data structure.
+
+## Using the CLI
+#### 1. Adding a word
+   `python main.py add-word word`
+   Adding a phrase / sentence / words seperated by spaces
+   `python main.py add-word "word or phrase"`
+#### 2. Deleting a word
+   `python main.py delete-word "word"`
+   Deleting a phrase / sentence / words seperated by spaces
+   `python main.py delete-word "word or phrase"`
+#### 3. Searching a word
+   `python main.py search-word word`
+   Searching a phrase
+   `python main.py search-word "word or phrase"`
+#### 4. Getting suggestions 
+   `python main.py suggestions your_prefix`
+   Getting *n* suggestions
+   `python main.py suggestions your_prefix --n your_n`
+#### 5. Displaying words in the trie
+   `python main.py display`
+   - This will display the top 5 words in the Trie
+   displaying *n* words in the trie
+   `python main.py display --n your_n`
+   displaying all words in the trie
+   `python main.py display --all`
+## Running tests
+1. Navigate to either the `test` directory or the `server/tests` directory and run the command `pytest` to run the test cases.

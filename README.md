@@ -31,25 +31,31 @@ The `server` directory contains the underlying code of the Trie data structure, 
 ## Using the CLI
 #### 1. Adding a word
    `python main.py add-word word`
+   
    Adding a phrase / sentence / words seperated by spaces
    `python main.py add-word "word or phrase"`
 #### 2. Deleting a word
    `python main.py delete-word "word"`
+   
    Deleting a phrase / sentence / words seperated by spaces
    `python main.py delete-word "word or phrase"`
 #### 3. Searching a word
    `python main.py search-word word`
+   
    Searching a phrase
    `python main.py search-word "word or phrase"`
 #### 4. Getting suggestions 
    `python main.py suggestions your_prefix`
+   
    Getting *n* suggestions
    `python main.py suggestions your_prefix --n your_n`
 #### 5. Displaying words in the trie
    `python main.py display`
-   - This will display the top 5 words in the Trie
+      - This will display the top 5 words in the Trie
+   
    displaying *n* words in the trie
    `python main.py display --n your_n`
+   
    displaying all words in the trie
    `python main.py display --all`
 ## Running tests
